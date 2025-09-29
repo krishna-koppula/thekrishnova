@@ -4,188 +4,287 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>KrishNova — HTA World (A Brand of KrishNova)</title>
-  <meta name="description" content="KrishNova — Parent company for HTA World (A Brand of KrishNova). CEO: Krishna Koppula. KrishX Labs YouTube channel. Modern tech branding. Innovate Impact Inspire." />
+  <meta name="description" content="KrishNova — Parent company for HTA World (A Brand of KrishNova). CEO: Krishna Koppula. Modern tech branding. Innovate Impact Inspire." />
+
+  <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <!-- Tailwind CDN for quick styling (good for prototypes) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
-    :root{ --accent: #0ea5a4; }
-    body{ font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; scroll-behavior: smooth; }
-    .fancy-underline{ background: linear-gradient(90deg, rgba(14,165,164,0.15), rgba(14,165,164,0.05)); padding: .15rem .4rem; border-radius: .35rem; }
+    :root{ --accent: #06b6d4; --accent-2: #06d6a0; --muted: #94a3b8; --glass: rgba(255,255,255,0.06); }
+    html,body{ height:100%; }
+    body{ font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background: radial-gradient(1200px 600px at 10% 10%, rgba(6,182,212,0.06), transparent 10%), linear-gradient(180deg,#071029 0%, #041023 55%); color: #e6eef8; }
+
+    /* Brand */
+    .brand-badge{ background: linear-gradient(135deg,var(--accent),var(--accent-2)); }
+
+    /* Glass */
+    .glass{ background: var(--glass); backdrop-filter: blur(8px) saturate(120%); border: 1px solid rgba(255,255,255,0.04); }
+
+    /* Floating */
+    @keyframes floaty { 0% { transform: translateY(0);} 50%{ transform: translateY(-8px);} 100%{ transform: translateY(0);} }
+    .floaty{ animation: floaty 6s ease-in-out infinite; }
+
+    .fancy-underline{ background: linear-gradient(90deg, rgba(6,182,212,0.14), rgba(6,214,160,0.07)); padding:.08rem .45rem; border-radius:.35rem; }
+    .text-dim{ color: rgba(230,238,248,0.75); }
+
+    header.navbar{ background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); backdrop-filter: blur(6px); }
+
+    a:focus, button:focus, input:focus{ outline: 3px solid rgba(6,182,212,0.12); }
+
+    /* Social icon button */
+    .sbtn{ display:inline-flex; align-items:center; justify-content:center; gap:.5rem; padding:.6rem; border-radius:.55rem; background: rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.03); transition: transform .18s ease, box-shadow .18s ease; }
+    .sbtn:hover{ transform: translateY(-4px); box-shadow: 0 8px 24px rgba(2,6,23,0.6); }
+
+    /* CTA */
+    .cta{ background: linear-gradient(90deg,var(--accent),var(--accent-2)); box-shadow: 0 10px 30px rgba(6,182,212,0.08); }
+
+    /* Tagline shimmer animation */
+    @keyframes shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    .shimmer-text {
+      background: linear-gradient(90deg, #06b6d4, #06d6a0, #06b6d4);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 4s linear infinite;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width:768px){ .hide-md{ display:none; } .hero-title{ font-size:1.7rem; } }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-800">
+<body class="min-h-screen flex flex-col">
+
   <!-- Header -->
-  <header class="max-w-6xl mx-auto p-6 flex items-center justify-between">
-    <div class="flex items-center gap-4">
-      <div class="w-12 h-12 bg-gradient-to-br from-teal-400 to-emerald-500 rounded-2xl flex items-center justify-center text-white font-extrabold">KN</div>
-      <div>
-        <a href="#home" class="text-xl font-semibold">KrishNova</a>
-        <div class="text-xs text-slate-500">HTA World — A Brand of KrishNova</div>
+  <header class="navbar sticky top-0 z-50 w-full">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-3" aria-label="KrishNova home">
+        <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-white font-extrabold brand-badge shadow-lg">KN</div>
+        <div class="leading-tight">
+          <div class="text-white font-semibold">KrishNova</div>
+          <div class="text-xs text-dim">HTA World — A Brand of KrishNova</div>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm text-white" aria-label="Primary">
+        <a href="#home" class="hover:underline">Home</a>
+        <a href="#about" class="hover:underline">About</a>
+        <a href="#brands" class="hover:underline">Brands</a>
+        <a href="#contact" class="hover:underline">Contact</a>
+        <a href="https://htaworld.com/" target="_blank" rel="noopener" class="px-4 py-2 rounded-lg bg-white text-slate-900 font-medium">Visit HTA</a>
+      </nav>
+
+      <div class="md:hidden flex items-center gap-2">
+        <button id="mobileBtn" aria-label="open menu" class="p-2 rounded-lg bg-white/10 text-white">☰</button>
       </div>
     </div>
-    <nav class="hidden md:flex gap-6 items-center text-sm">
-      <a href="#home" class="hover:underline nav-link">Home</a>
-      <a href="#about" class="hover:underline nav-link">About</a>
-      <a href="#brands" class="hover:underline nav-link">Brands</a>
-      <a href="#contact" class="hover:underline nav-link">Contact</a>
-      <a href="https://www.htaworld.com" target="_blank" rel="noopener" class="px-4 py-2 rounded-lg bg-slate-900 text-white">Visit HTA</a>
-    </nav>
-    <button id="mobileBtn" class="md:hidden p-2 rounded-lg bg-slate-100">☰</button>
   </header>
 
-  <!-- Mobile nav -->
-  <div id="mobileNav" class="md:hidden px-6 space-y-2 hidden">
-    <a href="#home" class="block py-2 nav-link">Home</a>
-    <a href="#about" class="block py-2 nav-link">About</a>
-    <a href="#brands" class="block py-2 nav-link">Brands</a>
-    <a href="#contact" class="block py-2 nav-link">Contact</a>
+  <!-- Mobile Nav -->
+  <div id="mobileNav" class="md:hidden hidden px-6 py-4 bg-gradient-to-b from-black/40 to-transparent">
+    <div class="flex flex-col gap-2">
+      <a href="#home" class="block p-3 rounded-lg text-white glass">Home</a>
+      <a href="#about" class="block p-3 rounded-lg text-white glass">About</a>
+      <a href="#brands" class="block p-3 rounded-lg text-white glass">Brands</a>
+      <a href="#contact" class="block p-3 rounded-lg text-white glass">Contact</a>
+      <a href="https://htaworld.com/" target="_blank" rel="noopener" class="block p-3 rounded-lg text-slate-900 bg-white">Visit HTA</a>
+    </div>
   </div>
 
   <!-- Hero -->
-  <main id="home" class="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-10 items-center">
-    <section>
-      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">KrishNova — <span class="text-teal-600">Innovate</span>, <span class="text-emerald-600">Impact</span>, <span class="text-sky-600">Inspire</span></h1>
-      <p class="mt-4 text-slate-600">The parent company of <span class=\"font-semibold\">HTA World (A Brand of KrishNova)</span>. Modern Developers · Modern Mentors · Bridging Tech and Talent — all led by Krishna Koppula.</p>
-      <div class="mt-6 flex gap-4">
-        <a href="#brands" class="px-5 py-3 rounded-lg bg-teal-500 text-white font-medium">Our Brands</a>
-        <a href="https://www.youtube.com/@KrishXLabs" target="_blank" rel="noopener" class="px-5 py-3 rounded-lg border border-slate-200">KrishX Labs (YouTube)</a>
-      </div>
-      <div class="mt-8 grid grid-cols-2 gap-3">
-        <div class="p-4 rounded-lg bg-white shadow">
-          <div class="text-xs text-slate-500">CEO</div>
-          <div class="font-semibold">Krishna Koppula</div>
+  <main id="home" class="flex-1">
+    <section class="max-w-7xl mx-auto px-6 py-16 grid lg:grid-cols-2 gap-12 items-center">
+
+      <!-- Left - copy -->
+      <div>
+        <div class="inline-flex items-center gap-2 mb-4">
+          <span class="px-3 py-1 rounded-full text-xs font-semibold bg-white/6 text-white">Academy · Labs · Consulting</span>
+          <span class="text-sm text-dim">Trusted by Enterprises & Universities</span>
         </div>
-        <div class="p-4 rounded-lg bg-white shadow">
-          <div class="text-xs text-slate-500">Brand</div>
-          <div class="font-semibold">HTA World — A Brand of KrishNova</div>
+
+        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight text-white hero-title text-center">KrishNova</h1>
+        <h2 class="mt-4 text-xl font-semibold text-center italic shimmer-text">Innovate · Impact · Inspire</h2>
+
+        <p class="mt-6 max-w-xl text-dim">Parent company of <strong>HTA World</strong>. We are developers as well as trainers — building industry-ready training, capstone projects, and production-grade solutions in AI, Cloud, IoT, Blockchain and Full Stack development — led by <strong>Krishna Koppula</strong>.</p>
+
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="#brands" class="inline-flex items-center gap-3 px-5 py-3 rounded-xl cta text-white font-semibold shadow-lg transform hover:-translate-y-1 transition">Explore Brands</a>
+          <a href="https://www.youtube.com/@KrishXLabs" target="_blank" rel="noopener" class="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-white/6 text-white border border-white/6 font-semibold">KrishX Labs</a>
+        </div>
+
+        <div class="mt-8 grid grid-cols-2 gap-3 max-w-md">
+          <div class="p-4 rounded-lg glass text-white">
+            <div class="text-xs text-dim">CEO</div>
+            <div class="font-semibold">Krishna Koppula</div>
+          </div>
+          <div class="p-4 rounded-lg glass text-white">
+            <div class="text-xs text-dim">Brand</div>
+            <div class="font-semibold">HTA World</div>
+          </div>
+        </div>
+
+        <div class="mt-8 flex items-center gap-4 text-sm text-dim">
+          <span>• 20,000+ learners</span>
+          <span>• 60+ techs</span>
+          <span>• Global reach</span>
+        </div>
+      </div>
+
+      <!-- Right - visual card -->
+      <aside class="relative">
+        <div class="absolute -right-8 -top-8 w-80 h-80 rounded-3xl bg-gradient-to-tr from-[#0ea5a4] to-[#06d6a0] opacity-20 filter blur-3xl"></div>
+
+        <div class="relative p-8 rounded-3xl glass shadow-2xl floaty"><video src="WhatsApp Video 2025-09-25 at 23.50.33_42f9f33b.mp4" 
+       controls autoplay muted loop playsinline 
+       class="w-full rounded-xl shadow">
+</video>
+
+          <div class="flex items-center gap-4">
+            <img src="https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?q=80&w=1200&auto=format&fit=crop&s=placeholder" alt="workspace" class="w-20 h-20 rounded-xl object-cover shadow" />
+
+            <div>
+              <div class="text-white font-semibold">KrishNova — Product Lab</div>
+              <div class="text-xs text-dim">Hands-on labs, course content, and cloud-native projects</div>
+            </div>
+          </div>
+
+          <div class="mt-6 grid gap-3">
+            <div class="p-4 rounded-lg bg-white/6">
+              <div class="text-xs text-dim">Featured</div>
+              <div class="font-medium text-white">AI + IoT Capstone</div>
+            </div>
+
+            <div class="p-4 rounded-lg bg-white/6 flex items-center justify-between">
+              <div>
+                <div class="text-xs text-dim">Channel</div>
+                <div class="font-medium text-white">KrishX Labs</div>
+              </div>
+              <a href="https://www.youtube.com/@KrishXLabs" target="_blank" rel="noopener" class="text-sm font-semibold text-white/90">Watch</a>
+            </div>
+          </div>
+
+          <div class="mt-6 flex gap-3">
+            <a href="#contact" class="px-4 py-2 rounded-lg bg-white text-slate-900 font-semibold">Let's Talk</a>
+            <a href="https://htaworld.com/" target="_blank" rel="noopener" class="px-4 py-2 rounded-lg border border-white/10 text-white">Visit HTA</a>
+          </div>
+        </div>
+
+        <div class="mt-6 text-xs text-dim">Trusted Partners: Top Universities & Enterprise Teams</div>
+      </aside>
+
+    </section>
+
+    <!-- Features strip -->
+    <section class="max-w-7xl mx-auto px-6 py-8">
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl glass text-white">
+          <div class="text-sm font-semibold">Enterprise Training</div>
+          <p class="mt-2 text-xs text-dim">Custom skilling programs for teams, upskilling, and hiring pipelines.</p>
+        </div>
+        <div class="p-6 rounded-2xl glass text-white">
+          <div class="text-sm font-semibold">Academic Partnerships</div>
+          <p class="mt-2 text-xs text-dim">Curricula, labs, and real-world projects integrated into courses.</p>
+        </div>
+        <div class="p-6 rounded-2xl glass text-white">
+          <div class="text-sm font-semibold">Product R&D</div>
+          <p class="mt-2 text-xs text-dim">Incubation, prototypes, and production-ready solutions.</p>
         </div>
       </div>
     </section>
 
-    <aside class="flex items-center justify-center">
-      <div class="w-full max-w-md p-6 bg-gradient-to-tr from-white to-slate-50 rounded-2xl shadow-lg">
-        <img src="https://images.unsplash.com/photo-1523475496153-3d6cc3f6a29c?q=80&w=1200&auto=format&fit=crop&s=placeholder" alt="Tech workspace" class="rounded-lg w-full mb-4 object-cover h-48">
-        <h3 class="font-semibold">KrishNova at a glance</h3>
-        <p class="mt-2 text-sm text-slate-600">We build educational content, labs, and industry-ready projects. <strong>HTA World — A Brand of KrishNova</strong> (www.htaworld.com) is our training and community brand.</p>
-        <div class="mt-4 space-y-2 text-sm">
-          <p><a href="https://www.linkedin.com/in/krishna-koppula-3591a62b1/" target="_blank" class="text-teal-600 underline">CEO on LinkedIn</a></p>
-          <p><a href="https://www.linkedin.com/company/krishnovallp/?viewAsMember=true" target="_blank" class="text-teal-600 underline">Company LinkedIn</a></p>
-          <p><a href="https://www.youtube.com/@KrishXLabs" target="_blank" class="text-teal-600 underline">KrishX Labs YouTube</a></p>
+    <!-- About -->
+    <section id="about" class="max-w-7xl mx-auto px-6 py-12">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h2 class="text-3xl font-extrabold text-white">About KrishNova LLP</h2>
+          <p class="mt-4 text-dim">Founded in 2024, KrishNova LLP is a hub for technology, learning and product incubation. We design industry-aligned courses and deliver hands-on capstone projects to help learners and teams ship.
+          </p>
+
+          <ul class="mt-6 space-y-2 text-dim text-sm">
+            <li>• AI/ML & Data Science</li>
+            <li>• Cloud & DevOps</li>
+            <li>• Cybersecurity & Blockchain</li>
+            <li>• Full-Stack & IoT</li>
+          </ul>
+
+          <div class="mt-6 flex gap-3">
+            <a href="#brands" class="px-4 py-2 rounded-lg bg-white/6 text-white">Our Brands</a>
+            <a href="#contact" class="px-4 py-2 rounded-lg bg-white text-slate-900">Get in touch</a>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl glass">
+          <div class="text-sm text-dim">Impact</div>
+          <div class="mt-3 text-white font-semibold">20,000+ students trained · 60+ technologies</div>
+          <p class="mt-3 text-dim text-sm">Global deployments, industry collaborations, and academic programs across APAC, Middle East, Europe and North America.</p>
         </div>
       </div>
-    </aside>
-  </main>
+    </section>
 
-  <!-- About -->
-  <section id="about" class="max-w-6xl mx-auto px-6 py-12">
-    <h2 class="text-2xl font-bold">About KrishNova LLP</h2>
-    <p class="mt-3 text-slate-600">🚀 <strong>Innovate | Inspire | Impact</strong></p>
-    <p class="mt-3 text-slate-600">Founded in 2024, KrishNova LLP is a dynamic hub of innovation, technology, and education. We are pioneering cutting-edge products currently in development, poised to redefine industries through next-gen solutions.</p>
+    <!-- Brands -->
+    <section id="brands" class="max-w-7xl mx-auto px-6 py-12">
+      <h3 class="text-xl font-bold text-white mb-4">Our Brands & Channels</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <article class="p-6 rounded-2xl glass text-white">
+          <h4 class="font-semibold">Horizon Tech Alliance (HTA)</h4>
+          <p class="mt-2 text-dim text-sm">Training, corporate skilling and tech community. Visit <a href="https://htaworld.com/" class="underline text-white">htaworld.com</a>.</p>
+        </article>
 
-    <h3 class="mt-6 text-xl font-semibold">Core Offerings</h3>
-    <ul class="list-disc list-inside mt-2 text-slate-600 space-y-2">
-      <li><strong>IT Services & Solutions</strong> — spanning transformative technologies:</li>
-      <ul class="list-disc list-inside ml-6 space-y-1">
-        <li><strong>AI/ML & Data Science</strong>: Intelligent systems and predictive analytics.</li>
-        <li><strong>Cloud Computing & DevOps</strong>: Scalable infrastructure and seamless deployment.</li>
-        <li><strong>Cybersecurity & Blockchain</strong>: Secure frameworks and decentralized innovation.</li>
-        <li><strong>Full-Stack Development & IoT</strong>: End-to-end software solutions and connected ecosystems.</li>
-        <li><strong>Automation</strong>: Streamlined workflows for enhanced efficiency.</li>
-      </ul>
-    </ul>
+        <article class="p-6 rounded-2xl glass text-white">
+          <h4 class="font-semibold">KrishX Labs</h4>
+          <p class="mt-2 text-dim text-sm">YouTube channel and lab demos for practical coding, IoT, cloud and full-stack projects. <a href="https://www.youtube.com/@KrishXLabs" class="underline text-white">Watch here</a>.</p>
+        </article>
 
-    <h3 class="mt-6 text-xl font-semibold">Training & Industry-Academia Bridge</h3>
-    <p class="mt-2 text-slate-600">Partnering with educational institutions, we deliver expert-led programs to equip <strong>10,000+ students</strong> and <strong>2,000+ professionals</strong> with real-world technical skills.</p>
-    <p class="mt-2 text-slate-600">Global Impact: Spearheaded by <strong>Krishna Koppula (Founder & CEO)</strong>, our training initiatives have reached learners at top universities in India and expanded globally, empowering talent in the US, UK, Canada, Kuwait, Australia, Singapore, Thailand, Philippines, Dubai, Sri Lanka, and beyond.</p>
-    <p class="mt-2 text-slate-600">Hands-on curricula bridge the gap between academia and industry, focusing on emerging technologies like AI, cloud computing, and cybersecurity.</p>
-
-    <h3 class="mt-6 text-xl font-semibold">Our Mission</h3>
-    <p class="mt-2 text-slate-600">To empower progress through innovation, foster lifelong learning, and create measurable impact across global communities.</p>
-
-    <p class="mt-4 text-slate-600">The parent company of <span class=\"font-semibold\">HTA World (A Brand of KrishNova)</span>. Modern Developers · Modern Mentors · Bridging Tech and Talent — all led by Krishna Koppula.</p>
-
-    <div class="mt-6 grid md:grid-cols-2 gap-6 text-sm text-slate-600">
-      <div>
-        <p><strong>Website:</strong> <a href="https://www.htaworld.com" target="_blank" class="text-teal-600 underline">www.htaworld.com</a></p>
-        <p><strong>Industry:</strong> IT Services and IT Consulting</p>
+        <article class="p-6 rounded-2xl glass text-white">
+          <h4 class="font-semibold">KrishNova</h4>
+          <p class="mt-2 text-dim text-sm">Parent company, brand strategy, and product incubation.</p>
+        </article>
       </div>
-      <div>
-        <p><strong>Company size:</strong> 11-50 employees</p>
-        <p><strong>LinkedIn members:</strong> 7 associated members</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="max-w-7xl mx-auto px-6 py-12">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h2 class="text-3xl font-extrabold text-white">Contact Us</h2>
+          <p class="mt-4 text-dim">We’d love to hear from you. Reach out for collaborations, training, or product inquiries.</p>
+          <ul class="mt-6 space-y-2 text-dim text-sm">
+            <li>📧 <a href="mailto:contact@htaworld.com" class="underline">contact@htaworld.com</a></li>
+            <li>📞 <a href="tel:+917207776150" class="underline">+91 720 777 6150</a></li>
+            <li>🌐 <a href="https://htaworld.com/" target="_blank" class="underline">htaworld.com</a></li>
+          </ul>
+          <div class="mt-4 flex gap-3 items-center text-dim text-sm">
+            <a href='https://www.linkedin.com/company/krishnovallp/?viewAsMember=true' target='_blank' class='sbtn'>LinkedIn</a>
+            <a href='https://x.com/krishnakoppulaX' target='_blank' class='sbtn'>X</a>
+            <a href='https://www.youtube.com/@KrishXLabs' target='_blank' class='sbtn'>YouTube</a>
+            <a href='https://www.instagram.com/yours_truly_krish/' target='_blank' class='sbtn'>Instagram</a>
+          </div>
+        </div>
+        <div class="p-6 rounded-2xl glass">
+          <form class="space-y-4" onsubmit="event.preventDefault();alert('Thanks — form demo only.');">
+            <input type="text" placeholder="Your Name" class="w-full p-3 rounded-lg text-slate-900" required />
+            <input type="email" placeholder="Your Email" class="w-full p-3 rounded-lg text-slate-900" required />
+            <textarea placeholder="Your Message" class="w-full p-3 rounded-lg text-slate-900" rows="4" required></textarea>
+            <button class="px-5 py-3 rounded-lg cta text-white font-semibold">Send Message</button>
+          </form>
+        </div>
       </div>
-    </div>
-</section>
+    </section>
 
-  <!-- Brands / Features -->
-  <section id="brands" class="max-w-6xl mx-auto px-6 py-12">
-    <h2 class="text-2xl font-bold">Our Brands & Channels</h2>
-    <p class="text-slate-600 mt-2">Short intro to the brands under KrishNova.</p>
-
-    <div class="mt-6 grid md:grid-cols-3 gap-6">
-      <article class="p-6 bg-white rounded-2xl shadow">
-        <h4 class="font-semibold">Horizon Tech Alliance (HTA)</h4>
-        <p class="text-sm text-slate-600 mt-2">Training, corporate skilling and tech community. Visit <a href="https://www.htaworld.com" target="_blank" rel="noopener" class="text-teal-600 underline">htaworld.com</a>. <br><strong>HTA World — A Brand of KrishNova</strong>.</p>
-      </article>
-
-      <article class="p-6 bg-white rounded-2xl shadow">
-        <h4 class="font-semibold">KrishX Labs</h4>
-        <p class="text-sm text-slate-600 mt-2">YouTube channel and lab demos for practical coding, IoT, cloud and full-stack projects.</p>
-      </article>
-
-      <article class="p-6 bg-white rounded-2xl shadow">
-        <h4 class="font-semibold">KrishNova</h4>
-        <p class="text-sm text-slate-600 mt-2">Parent company, brand strategy, and project incubation.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- Contact / Footer -->
-  <footer id="contact" class="bg-slate-900 text-white mt-12">
-    <div class="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-8">
-      <div>
-        <div class="text-sm text-slate-300">Get in touch</div>
-        <h3 class="text-2xl font-bold">Work with KrishNova</h3>
-        <p class="mt-3 text-slate-300">For partnerships, training, and collaborations contact the CEO.</p>
-        <ul class="mt-4 text-slate-300 text-sm space-y-2">
-          <li>CEO: Krishna Koppula</li>
-          <li>Website: <a href="https://www.htaworld.com" target="_blank" rel="noopener" class="underline">www.htaworld.com</a></li>
-          <li>Email: <a href="mailto:hello@krishnova.com" class="underline">hello@krishnova.com</a></li>
-          <li>Phone: <a href="tel:+917207776150" class="underline">+91 720 777 6150</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <div class="text-sm text-slate-300">Subscribe</div>
-        <p class="mt-2 text-slate-300 text-sm">Stay updated with KrishX Labs and HTA workshops.</p>
-        <form class="mt-4 flex gap-2">
-          <input aria-label="email" type="email" placeholder="you@domain.com" class="flex-1 p-3 rounded-lg text-slate-900" />
-          <button class="px-4 py-3 rounded-lg bg-teal-500">Subscribe</button>
-        </form>
-        <div class="mt-6 text-xs text-slate-400">© <span id="year"></span> HTA World — A Brand of KrishNova</div>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // smooth scrolling and mobile nav behavior
-    document.documentElement.style.scrollBehavior = 'smooth';
-
-    const btn = document.getElementById('mobileBtn');
-    const nav = document.getElementById('mobileNav');
-    btn?.addEventListener('click', () => nav.classList.toggle('hidden'));
-
-    // close mobile nav on link click
-    document.querySelectorAll('.nav-link').forEach(a => {
-      a.addEventListener('click', () => {
-        if (!nav.classList.contains('hidden')) nav.classList.add('hidden');
-      });
-    });
-
-    // footer year
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+    <!-- CTA banner -->
+    <section class="max-w-7xl mx-auto px-6 py-8">
+      <div class="rounded-2xl p-8 bg-gradient-to-r from-[#052235] to-[#0b1220] glass flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+          <div class="text-sm text-dim">Ready to build something impactful?</div>
+          <div class="text-white font-semibold text-xl">Partner with KrishNova for developments, products, and trainings.</div>
+        </div>
+        <div class="flex gap-3">
+          <a href="#contact" class="px-5 py-3 rounded-lg cta text-white font-semibold">Let's collaborate</a>
+          <a href="mailto:contact@htaworld.com" class="px
