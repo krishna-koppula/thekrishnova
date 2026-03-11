@@ -1,298 +1,483 @@
-<!doctype html>
+```html
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>KrishNova — HTA World (A Brand of KrishNova)</title>
-  <meta name="description" content="KrishNova — Parent company for HTA World (A Brand of KrishNova). CEO: Krishna Koppula. Modern tech branding. Innovate Impact Inspire." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<title>KRISHNOVA LLP</title>
 
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
 
-  <style>
-    :root{ --accent: #06b6d4; --accent-2: #06d6a0; --muted: #94a3b8; --glass: rgba(255,255,255,0.06); }
-    html,body{ height:100%; }
-    body{ font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background: radial-gradient(1200px 600px at 10% 10%, rgba(6,182,212,0.06), transparent 10%), linear-gradient(180deg,#071029 0%, #041023 55%); color: #e6eef8; }
+<style>
 
-    /* Brand */
-    .brand-badge{ background: linear-gradient(135deg,var(--accent),var(--accent-2)); }
+html{scroll-behavior:smooth;}
 
-    /* Glass */
-    .glass{ background: var(--glass); backdrop-filter: blur(8px) saturate(120%); border: 1px solid rgba(255,255,255,0.04); }
+body{
+margin:0;
+background:#020617;
+color:white;
+font-family:'Space Grotesk',sans-serif;
+}
 
-    /* Floating */
-    @keyframes floaty { 0% { transform: translateY(0);} 50%{ transform: translateY(-8px);} 100%{ transform: translateY(0);} }
-    .floaty{ animation: floaty 6s ease-in-out infinite; }
+/* NAVBAR */
 
-    .fancy-underline{ background: linear-gradient(90deg, rgba(6,182,212,0.14), rgba(6,214,160,0.07)); padding:.08rem .45rem; border-radius:.35rem; }
-    .text-dim{ color: rgba(230,238,248,0.75); }
+header{
+position:sticky;
+top:0;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 40px;
+background:#020617;
+border-bottom:1px solid #1e293b;
+z-index:1000;
+}
 
-    header.navbar{ background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); backdrop-filter: blur(6px); }
+nav a{
+margin-left:20px;
+color:#cbd5f5;
+text-decoration:none;
+}
 
-    a:focus, button:focus, input:focus{ outline: 3px solid rgba(6,182,212,0.12); }
+nav a:hover{color:#38bdf8;}
 
-    /* Social icon button */
-    .sbtn{ display:inline-flex; align-items:center; justify-content:center; gap:.5rem; padding:.6rem; border-radius:.55rem; background: rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.03); transition: transform .18s ease, box-shadow .18s ease; }
-    .sbtn:hover{ transform: translateY(-4px); box-shadow: 0 8px 24px rgba(2,6,23,0.6); }
+/* HERO */
 
-    /* CTA */
-    .cta{ background: linear-gradient(90deg,var(--accent),var(--accent-2)); box-shadow: 0 10px 30px rgba(6,182,212,0.08); }
+.hero{
+text-align:center;
+padding:140px 20px;
+background:radial-gradient(circle at top,#1e3a8a30,#020617);
+}
 
-    /* Tagline shimmer animation */
-    @keyframes shimmer {
-      0% { background-position: -200% center; }
-      100% { background-position: 200% center; }
-    }
-    .shimmer-text {
-      background: linear-gradient(90deg, #06b6d4, #06d6a0, #06b6d4);
-      background-size: 200% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: shimmer 4s linear infinite;
-    }
+.hero h1{
+font-size:72px;
+font-weight:800;
+background:linear-gradient(90deg,#38bdf8,#6366f1);
+-webkit-background-clip:text;
+color:transparent;
+}
 
-    /* Responsive tweaks */
-    @media (max-width:768px){ .hide-md{ display:none; } .hero-title{ font-size:1.7rem; } }
-  </style>
+.tagline{
+letter-spacing:6px;
+color:#38bdf8;
+margin-top:10px;
+}
+
+.description{
+max-width:750px;
+margin:auto;
+margin-top:30px;
+color:#cbd5f5;
+font-size:18px;
+}
+
+/* BUTTONS */
+
+.btn{
+display:inline-block;
+padding:14px 26px;
+margin:10px;
+border-radius:8px;
+text-decoration:none;
+font-weight:600;
+}
+
+.primary{background:#38bdf8;color:black;}
+.outline{border:1px solid #38bdf8;color:#38bdf8;}
+
+.btn:hover{transform:translateY(-3px);}
+
+/* SECTIONS */
+
+.section{
+padding:90px 20px;
+text-align:center;
+}
+
+.section h2{
+font-size:42px;
+margin-bottom:50px;
+font-family:'Poppins';
+}
+
+/* GRID */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+max-width:1100px;
+margin:auto;
+}
+
+/* CARDS */
+
+.card{
+background:#0f172a;
+border:1px solid rgba(255,255,255,0.08);
+border-radius:16px;
+padding:40px;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+border-color:#38bdf8;
+box-shadow:0 20px 40px rgba(0,0,0,0.6);
+}
+
+/* STACK */
+
+.stack{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:18px;
+max-width:900px;
+margin:auto;
+}
+
+.tech{
+border:1px solid #38bdf8;
+padding:12px 22px;
+border-radius:30px;
+}
+
+/* ARCHITECTURE */
+
+.core{
+background:linear-gradient(90deg,#38bdf8,#6366f1);
+padding:18px 40px;
+border-radius:30px;
+display:inline-block;
+font-weight:600;
+}
+
+.arch-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:25px;
+max-width:900px;
+margin:40px auto;
+}
+
+.arch-card{
+background:#0f172a;
+padding:25px;
+border-radius:14px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.arch-card:hover{
+border-color:#38bdf8;
+}
+
+/* IMPACT */
+
+.impact-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:25px;
+max-width:900px;
+margin:auto;
+}
+
+.impact-card{
+background:#0f172a;
+padding:30px;
+border-radius:14px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.impact-card h3{
+font-size:36px;
+color:#38bdf8;
+}
+
+/* PARTNERS */
+
+.partners{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+}
+
+.partner{
+border:1px solid #38bdf8;
+padding:12px 24px;
+border-radius:30px;
+color:#38bdf8;
+}
+
+/* MAP */
+
+.map{
+width:80%;
+max-width:900px;
+border-radius:10px;
+}
+
+/* VIDEO */
+
+.video{
+max-width:800px;
+margin:auto;
+}
+
+/* FOOTER */
+
+footer{
+border-top:1px solid #1e293b;
+padding:30px;
+text-align:center;
+color:#94a3b8;
+}
+
+footer a{
+color:#38bdf8;
+text-decoration:none;
+margin:0 6px;
+}
+
+</style>
+
 </head>
-<body class="min-h-screen flex flex-col">
 
-  <!-- Header -->
-  <header class="navbar sticky top-0 z-50 w-full">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="#home" class="flex items-center gap-3" aria-label="KrishNova home">
-        <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-white font-extrabold brand-badge shadow-lg">KN</div>
-        <div class="leading-tight">
-          <div class="text-white font-semibold">KrishNova</div>
-          <div class="text-xs text-dim">HTA World — A Brand of KrishNova</div>
-        </div>
-      </a>
+<body>
 
-      <nav class="hidden md:flex items-center gap-6 text-sm text-white" aria-label="Primary">
-        <a href="#home" class="hover:underline">Home</a>
-        <a href="#about" class="hover:underline">About</a>
-        <a href="#brands" class="hover:underline">Brands</a>
-        <a href="#contact" class="hover:underline">Contact</a>
-        <a href="https://htaworld.com/" target="_blank" rel="noopener" class="px-4 py-2 rounded-lg bg-white text-slate-900 font-medium">Visit HTA</a>
-      </nav>
+<header>
 
-      <div class="md:hidden flex items-center gap-2">
-        <button id="mobileBtn" aria-label="open menu" class="p-2 rounded-lg bg-white/10 text-white">☰</button>
-      </div>
-    </div>
-  </header>
+<h3>KRISHNOVA</h3>
 
-  <!-- Mobile Nav -->
-  <div id="mobileNav" class="md:hidden hidden px-6 py-4 bg-gradient-to-b from-black/40 to-transparent">
-    <div class="flex flex-col gap-2">
-      <a href="#home" class="block p-3 rounded-lg text-white glass">Home</a>
-      <a href="#about" class="block p-3 rounded-lg text-white glass">About</a>
-      <a href="#brands" class="block p-3 rounded-lg text-white glass">Brands</a>
-      <a href="#contact" class="block p-3 rounded-lg text-white glass">Contact</a>
-      <a href="https://htaworld.com/" target="_blank" rel="noopener" class="block p-3 rounded-lg text-slate-900 bg-white">Visit HTA</a>
-    </div>
-  </div>
+<nav>
+<a href="#home">Home</a>
+<a href="#ecosystem">Ecosystem</a>
+<a href="#architecture">Architecture</a>
+<a href="#technology">Technology</a>
+<a href="#global">Global</a>
+<a href="#founder">Founder</a>
+<a href="#media">Media</a>
+<a href="#contact">Contact</a>
+</nav>
 
-  <!-- Hero -->
-  <main id="home" class="flex-1">
-    <section class="max-w-7xl mx-auto px-6 py-16 grid lg:grid-cols-2 gap-12 items-center">
+</header>
 
-      <!-- Left - copy -->
-      <div>
-        <div class="inline-flex items-center gap-2 mb-4">
-          <span class="px-3 py-1 rounded-full text-xs font-semibold bg-white/6 text-white">Academy · Labs · Consulting</span>
-          <span class="text-sm text-dim">Trusted by Enterprises & Universities</span>
-        </div>
+<!-- HERO -->
 
-        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight text-white hero-title text-center">KrishNova</h1>
-        <h2 class="mt-4 text-xl font-semibold text-center italic shimmer-text">Innovate · Impact · Inspire</h2>
+<section id="home" class="hero">
 
-        <p class="mt-6 max-w-xl text-dim">Parent company of <strong>HTA World</strong>. We are developers as well as trainers — building industry-ready training, capstone projects, and production-grade solutions in AI, Cloud, IoT, Blockchain and Full Stack development — led by <strong>Krishna Koppula</strong>.</p>
+<h1>KRISHNOVA LLP</h1>
 
-        <div class="mt-8 flex flex-wrap gap-4">
-          <a href="#brands" class="inline-flex items-center gap-3 px-5 py-3 rounded-xl cta text-white font-semibold shadow-lg transform hover:-translate-y-1 transition">Explore Brands</a>
-          <a href="https://www.youtube.com/@KrishXLabs" target="_blank" rel="noopener" class="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-white/6 text-white border border-white/6 font-semibold">KrishX Labs</a>
-        </div>
+<p class="tagline">INNOVATE • INSPIRE • IMPACT</p>
 
-        <div class="mt-8 grid grid-cols-2 gap-3 max-w-md">
-          <div class="p-4 rounded-lg glass text-white">
-            <div class="text-xs text-dim">CEO</div>
-            <div class="font-semibold">Krishna Koppula</div>
-          </div>
-          <div class="p-4 rounded-lg glass text-white">
-            <div class="text-xs text-dim">Brand</div>
-            <div class="font-semibold">HTA World</div>
-          </div>
-        </div>
+<p class="description">
+Global technology and talent ecosystem connecting innovation,
+industry and professionals across 60+ countries.
+</p>
 
-        <div class="mt-8 flex items-center gap-4 text-sm text-dim">
-          <span>• 20,000+ learners</span>
-          <span>• 60+ techs</span>
-          <span>• Global reach</span>
-        </div>
-      </div>
+<a href="http://www.htaworld.com/" target="_blank" class="btn primary">HTA World</a>
 
-      <!-- Right - visual card -->
-      <aside class="relative">
-        <div class="absolute -right-8 -top-8 w-80 h-80 rounded-3xl bg-gradient-to-tr from-[#0ea5a4] to-[#06d6a0] opacity-20 filter blur-3xl"></div>
+<a href="https://www.corporateguruofindia.com/" target="_blank" class="btn outline">Corporate Guru Of India</a>
 
-        <div class="relative p-8 rounded-3xl glass shadow-2xl floaty"><video
-  src="videos/product-lab.mp4"
-  controls
-  autoplay
-  muted
-  loop
-  playsinline
-  class="w-full rounded-xl shadow">
-</video>
+<a href="https://www.youtube.com/channel/UC0vmUZyIcvoQlk3WKtwqG-Q" target="_blank" class="btn outline">KrishX Labs</a>
+
+</section>
 
 
+<!-- ECOSYSTEM -->
+
+<section id="ecosystem" class="section">
+
+<h2>KRISHNOVA Ecosystem</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>HTA – Horizon Tech Alliance</h3>
+<p>Enterprise IT products and technology services including AI, Cloud and Automation.</p>
+</div>
+
+<div class="card">
+<h3>CGI – Corporate Guru Of India</h3>
+<p>India's unified skill and corporate training ecosystem.</p>
+</div>
+
+<div class="card">
+<h3>KrishX Labs</h3>
+<p>Research division focused on AI and emerging technologies.</p>
+</div>
+
+<div class="card">
+<h3>Cortex Fleet</h3>
+<p>Smart mobility and fleet technology platform – launching soon.</p>
+</div>
+
+</div>
+
+</section>
 
 
-          <div class="flex items-center gap-4">
-            <img src="https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?q=80&w=1200&auto=format&fit=crop&s=placeholder" alt="workspace" class="w-20 h-20 rounded-xl object-cover shadow" />
+<!-- ARCHITECTURE -->
 
-            <div>
-              <div class="text-white font-semibold">KrishNova — Product Lab</div>
-              <div class="text-xs text-dim">Hands-on labs, course content, and cloud-native projects</div>
-            </div>
-          </div>
+<section id="architecture" class="section">
 
-          <div class="mt-6 grid gap-3">
-            <div class="p-4 rounded-lg bg-white/6">
-              <div class="text-xs text-dim">Featured</div>
-              <div class="font-medium text-white">AI + IoT Capstone</div>
-            </div>
+<h2>KRISHNOVA Architecture</h2>
 
-            <div class="p-4 rounded-lg bg-white/6 flex items-center justify-between">
-              <div>
-                <div class="text-xs text-dim">Channel</div>
-                <div class="font-medium text-white">KrishX Labs</div>
-              </div>
-              <a href="https://www.youtube.com/@KrishXLabs" target="_blank" rel="noopener" class="text-sm font-semibold text-white/90">Watch</a>
-            </div>
-          </div>
+<div class="core">KRISHNOVA LLP</div>
 
-          <div class="mt-6 flex gap-3">
-            <a href="#contact" class="px-4 py-2 rounded-lg bg-white text-slate-900 font-semibold">Let's Talk</a>
-            <a href="https://htaworld.com/" target="_blank" rel="noopener" class="px-4 py-2 rounded-lg border border-white/10 text-white">Visit HTA</a>
-          </div>
-        </div>
+<div class="arch-grid">
 
-        <div class="mt-6 text-xs text-dim">Trusted Partners: Top Universities & Enterprise Teams</div>
-      </aside>
+<div class="arch-card">HTA</div>
+<div class="arch-card">CGI</div>
+<div class="arch-card">KrishX Labs</div>
+<div class="arch-card">Cortex Fleet</div>
 
-    </section>
+</div>
 
-    <!-- Features strip -->
-    <section class="max-w-7xl mx-auto px-6 py-8">
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="p-6 rounded-2xl glass text-white">
-          <div class="text-sm font-semibold">Enterprise Training</div>
-          <p class="mt-2 text-xs text-dim">Custom skilling programs for teams, upskilling, and hiring pipelines.</p>
-        </div>
-        <div class="p-6 rounded-2xl glass text-white">
-          <div class="text-sm font-semibold">Academic Partnerships</div>
-          <p class="mt-2 text-xs text-dim">Curricula, labs, and real-world projects integrated into courses.</p>
-        </div>
-        <div class="p-6 rounded-2xl glass text-white">
-          <div class="text-sm font-semibold">Product R&D</div>
-          <p class="mt-2 text-xs text-dim">Incubation, prototypes, and production-ready solutions.</p>
-        </div>
-      </div>
-    </section>
+</section>
 
-    <!-- About -->
-    <section id="about" class="max-w-7xl mx-auto px-6 py-12">
-      <div class="grid md:grid-cols-2 gap-8 items-center">
-        <div>
-          <h2 class="text-3xl font-extrabold text-white">About KrishNova LLP</h2>
-          <p class="mt-4 text-dim">Founded in 2024, KrishNova LLP is a hub for technology, learning and product incubation. We design industry-aligned courses and deliver hands-on capstone projects to help learners and teams ship.
-          </p>
 
-          <ul class="mt-6 space-y-2 text-dim text-sm">
-            <li>• AI/ML & Data Science</li>
-            <li>• Cloud & DevOps</li>
-            <li>• Cybersecurity & Blockchain</li>
-            <li>• Full-Stack & IoT</li>
-          </ul>
+<!-- TECHNOLOGY -->
 
-          <div class="mt-6 flex gap-3">
-            <a href="#brands" class="px-4 py-2 rounded-lg bg-white/6 text-white">Our Brands</a>
-            <a href="#contact" class="px-4 py-2 rounded-lg bg-white text-slate-900">Get in touch</a>
-          </div>
-        </div>
+<section id="technology" class="section">
 
-        <div class="p-6 rounded-2xl glass">
-          <div class="text-sm text-dim">Impact</div>
-          <div class="mt-3 text-white font-semibold">20,000+ students trained · 60+ technologies</div>
-          <p class="mt-3 text-dim text-sm">Global deployments, industry collaborations, and academic programs across APAC, Middle East, Europe and North America.</p>
-        </div>
-      </div>
-    </section>
+<h2>Technology Stack</h2>
 
-    <!-- Brands -->
-    <section id="brands" class="max-w-7xl mx-auto px-6 py-12">
-      <h3 class="text-xl font-bold text-white mb-4">Our Brands & Channels</h3>
-      <div class="grid md:grid-cols-3 gap-6">
-        <article class="p-6 rounded-2xl glass text-white">
-          <h4 class="font-semibold">Horizon Tech Alliance (HTA)</h4>
-          <p class="mt-2 text-dim text-sm">Training, corporate skilling and tech community. Visit <a href="https://htaworld.com/" class="underline text-white">htaworld.com</a>.</p>
-        </article>
+<div class="stack">
 
-        <article class="p-6 rounded-2xl glass text-white">
-          <h4 class="font-semibold">KrishX Labs</h4>
-          <p class="mt-2 text-dim text-sm">YouTube channel and lab demos for practical coding, IoT, cloud and full-stack projects. <a href="https://www.youtube.com/@KrishXLabs" class="underline text-white">Watch here</a>.</p>
-        </article>
+<div class="tech">Artificial Intelligence</div>
+<div class="tech">Cloud Computing</div>
+<div class="tech">Full Stack</div>
+<div class="tech">Data Engineering</div>
+<div class="tech">IoT</div>
+<div class="tech">Automation</div>
+<div class="tech">Cybersecurity</div>
 
-        <article class="p-6 rounded-2xl glass text-white">
-          <h4 class="font-semibold">KrishNova</h4>
-          <p class="mt-2 text-dim text-sm">Parent company, brand strategy, and product incubation.</p>
-        </article>
-      </div>
-    </section>
+</div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="max-w-7xl mx-auto px-6 py-12">
-      <div class="grid md:grid-cols-2 gap-8 items-center">
-        <div>
-          <h2 class="text-3xl font-extrabold text-white">Contact Us</h2>
-          <p class="mt-4 text-dim">We’d love to hear from you. Reach out for collaborations, training, or product inquiries.</p>
-          <ul class="mt-6 space-y-2 text-dim text-sm">
-            <li>📧 <a href="mailto:contact@htaworld.com" class="underline">contact@htaworld.com</a></li>
-            <li>📞 <a href="tel:+917207776150" class="underline">+91 720 777 6150</a></li>
-            <li>🌐 <a href="https://htaworld.com/" target="_blank" class="underline">htaworld.com</a></li>
-          </ul>
-          <div class="mt-4 flex gap-3 items-center text-dim text-sm">
-            <a href='https://www.linkedin.com/company/krishnovallp/?viewAsMember=true' target='_blank' class='sbtn'>LinkedIn</a>
-            <a href='https://x.com/krishnakoppulaX' target='_blank' class='sbtn'>X</a>
-            <a href='https://www.youtube.com/@KrishXLabs' target='_blank' class='sbtn'>YouTube</a>
-            <a href='https://www.instagram.com/yours_truly_krish/' target='_blank' class='sbtn'>Instagram</a>
-          </div>
-        </div>
-        <div class="p-6 rounded-2xl glass">
-          <form class="space-y-4" onsubmit="event.preventDefault();alert('Thanks — form demo only.');">
-            <input type="text" placeholder="Your Name" class="w-full p-3 rounded-lg text-slate-900" required />
-            <input type="email" placeholder="Your Email" class="w-full p-3 rounded-lg text-slate-900" required />
-            <textarea placeholder="Your Message" class="w-full p-3 rounded-lg text-slate-900" rows="4" required></textarea>
-            <button class="px-5 py-3 rounded-lg cta text-white font-semibold">Send Message</button>
-          </form>
-        </div>
-      </div>
-    </section>
+</section>
 
-    <!-- CTA banner -->
-    <section class="max-w-7xl mx-auto px-6 py-8">
-      <div class="rounded-2xl p-8 bg-gradient-to-r from-[#052235] to-[#0b1220] glass flex flex-col md:flex-row items-center justify-between gap-6">
-        <div>
-          <div class="text-sm text-dim">Ready to build something impactful?</div>
-          <div class="text-white font-semibold text-xl">Partner with KrishNova for developments, products, and trainings.</div>
-        </div>
-        <div class="flex gap-3">
-          <a href="#contact" class="px-5 py-3 rounded-lg cta text-white font-semibold">Let's collaborate</a>
-          <a href="mailto:contact@htaworld.com" class="px
+
+<!-- GLOBAL -->
+
+<section id="global" class="section">
+
+<h2>Global Presence</h2>
+
+<p>India • Middle East • Asia • Europe • North America</p>
+
+<img class="map" src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg">
+
+</section>
+
+
+<!-- IMPACT -->
+
+<section class="section">
+
+<h2>KRISHNOVA Global Impact</h2>
+
+<div class="impact-grid">
+
+<div class="impact-card">
+<h3>60+</h3>
+<p>Countries</p>
+</div>
+
+<div class="impact-card">
+<h3>20K+</h3>
+<p>Professionals Trained</p>
+</div>
+
+<div class="impact-card">
+<h3>60+</h3>
+<p>Technologies</p>
+</div>
+
+<div class="impact-card">
+<h3>100+</h3>
+<p>Corporate Trainings</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOUNDER -->
+
+<section id="founder" class="section">
+
+<h2>Founder</h2>
+
+<p>
+
+<strong>Krishna Koppula</strong> – Founder & CEO
+
+</p>
+
+<p>
+
+<a href="https://www.linkedin.com/in/krishna-koppula-3591a62b1/" target="_blank">Founder LinkedIn</a>
+
+</p>
+
+</section>
+
+
+<!-- MEDIA -->
+
+<section id="media" class="section">
+
+<h2>KrishX Labs Media</h2>
+
+<div class="video">
+
+<iframe width="100%" height="400"
+src="https://www.youtube.com/embed?listType=user_uploads&list=UC0vmUZyIcvoQlk3WKtwqG-Q"
+frameborder="0"
+allowfullscreen></iframe>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact" class="section">
+
+<h2>Contact</h2>
+
+<p>
+<a href="mailto:info@thekrishnova.com">info@thekrishnova.com</a>
+</p>
+
+<p>
+<a href="https://www.linkedin.com/company/krishnova/" target="_blank">LinkedIn</a> |
+<a href="https://www.instagram.com/krishnova_llp" target="_blank">Instagram</a> |
+<a href="https://www.facebook.com/share/1abZfGCPem/" target="_blank">Facebook</a>
+</p>
+
+</section>
+
+
+<footer>
+
+<p>© 2026 KRISHNOVA LLP</p>
+
+<p>
+<a href="http://www.htaworld.com/" target="_blank">HTA</a> |
+<a href="https://www.corporateguruofindia.com/" target="_blank">CGI</a> |
+<a href="https://www.youtube.com/channel/UC0vmUZyIcvoQlk3WKtwqG-Q" target="_blank">KrishX Labs</a>
+</p>
+
+<p>INNOVATE • INSPIRE • IMPACT</p>
+
+</footer>
+
+</body>
+</html>
+```
